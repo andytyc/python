@@ -7,8 +7,10 @@
     - [1. 数字](#1-数字)
       - [1.1 布尔](#11-布尔)
       - [1.2 整数、浮点数](#12-整数浮点数)
+        - [运算](#运算)
+      - [1.3 复数](#13-复数)
 
-<!-- Added by: edy, at: 2023年 2月 3日 星期五 18时10分54秒 CST -->
+<!-- Added by: edy, at: 2023年 2月 3日 星期五 18时57分25秒 CST -->
 
 <!--te-->
 
@@ -68,11 +70,23 @@ Python 有六个标准的数据类型：
 
 **很重要一点是类型可以自由地转换，你赋什么值，变量就是什么类型，python 会自动帮你管理**
 
-[code](https://github.com/andytyc/pythoncode/blob/main/seed/base/term/01.py)
+[code](https://github.com/andytyc/pythoncode/blob/main/seed/base/term/02-1.py)
 
 ### 1. 数字
 
 Python3 支持 `int（整数）、float（浮点数）、bool（布尔）、complex（复数）`
+
+数值类型实例
+
+| int    | float      | complex    |
+| ------ | ---------- | ---------- |
+| 10     | 0.0        | 3.14j      |
+| 100    | 15.20      | 45.j       |
+| -786   | -21.9      | 9.322e-36j |
+| 080    | 32.3e+18   | .876j      |
+| -0490  | -90.       | -.6545+0J  |
+| -0x260 | -32.54e100 | 3e+26J     |
+| 0x69   | 70.2E-12   | 4.53e-7j   |
 
 #### 1.1 布尔
 
@@ -80,8 +94,17 @@ Python3 支持 `int（整数）、float（浮点数）、bool（布尔）、comp
 
 2. Python3 中，`bool 是 int 的子类`，True 和 False 可以和数字相加， `True == 1`、`False == 0` 会返回 True，但可以通过 `is` 来判断类型。
 
-[code](https://github.com/andytyc/pythoncode/blob/main/seed/base/term/02.py)
+[code](https://github.com/andytyc/pythoncode/blob/main/seed/base/term/02-2.py)
 
 #### 1.2 整数、浮点数
 
-[code](https://github.com/andytyc/pythoncode/blob/main/seed/base/term/03.py)
+##### 运算
+
+1. 数值的除法包含两个运算符：`/` 返回一个浮点数，`//` 返回一个整数
+2. 在混合计算时，Python 会把整型转换成为浮点数
+
+[code](https://github.com/andytyc/pythoncode/blob/main/seed/base/term/02-3.py)
+
+#### 1.3 复数
+
+复数，复数由实数部分和虚数部分构成，可以用 `a + bj`，或者 `complex(a,b)` 表示，复数的实部 a 和虚部 b 都是浮点型。
