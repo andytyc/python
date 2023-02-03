@@ -24,7 +24,6 @@
 
 - [python 标准库](./site-packages/standard_lib/)
 - [python 应用](./site-packages/app/)
-- [python 开源项目](./opencode/)
 
 - [问题 FAQ](./issue/)
 - [参考](./reference.md)

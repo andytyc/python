@@ -2,6 +2,8 @@
 
 学习 python 基础的笔记
 
+# 参考
+
 - [w3cschool 入门不错教程](https://www.w3cschool.cn/python/)
 - [菜鸟](https://www.runoob.com/python3/python3-tutorial.html)
 
