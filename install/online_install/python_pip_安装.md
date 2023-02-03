@@ -31,11 +31,11 @@
 
 ### 系统-初始环境
 
-```
-1. ubuntu更新源(软件包管理工具)，改为国内。
+```bash
+# 1. ubuntu更新源(软件包管理工具)，改为国内。
 见：github/tool/servers/01_ubuntu_xxx.md
 
-2. 注意，要进行下更新哦。
+# 2. 注意，要进行下更新哦。
 sudo apt-get update
 
 ---
@@ -48,7 +48,7 @@ sudo apt-get install zlib1g-dev libffi-dev zip unzip
 
 ### 查看-最初的 python 环境
 
-```
+```bash
 # 查看这台ubuntu, 当前python环境情况(这台ubuntu服务器，最初的配置情况)
 which python
 which python3
@@ -96,12 +96,12 @@ python3 get-pip.py
 
 ### 安装 pip
 
-```
-方法1：
+```bash
+# 方法1：
 sudo apt install python-pip                安装pip(对应python -- which python 或 python -V)
 sudo apt install python3-pip                安装pip3(对应python3 -- which python3 或 python3 -V)
 
-方法2：
+# 方法2：
 1. 先下载安装pip的脚本
 wget https://bootstrap.pypa.io/get-pip.py
 

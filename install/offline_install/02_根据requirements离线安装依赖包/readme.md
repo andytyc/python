@@ -1,12 +1,8 @@
 <!--ts-->
 
-- [安装-pip](#安装-pip)
-- [安装-setuptools](#安装-setuptools)
-- [安装-wheel](#安装-wheel)
-- [实战-安装](#实战-安装)
-  - [通过(requirements.txt)-离线安装依赖包](#通过requirementstxt-离线安装依赖包)
+- [实战笔记](#实战笔记)
 
-<!-- Added by: edy, at: 2023年 2月 3日 星期五 12时00分38秒 CST -->
+<!-- Added by: edy, at: 2023年 2月 3日 星期五 12时43分28秒 CST -->
 
 <!--te-->
 

@@ -13,7 +13,7 @@ pip, 第三方依赖包等
 
 # 官方
 
-- [install packages 官方文档-讲述如何安装 packages](https://packaging.python.org/tutorials/installing-packages/)
+- [安装 packages 官方文档-讲述如何安装 packages](https://packaging.python.org/tutorials/installing-packages/)
 - 目录：
 
   - 安装软件需要准备的东西(Requirements).
@@ -36,7 +36,7 @@ pip, 第三方依赖包等
   - 安装预映(Prereleases)
   - 安装 setuptools 临时演员
 
-- [install pip/setuptools/wheel-官方文档-通过 linux 系统包管理器](https://packaging.python.org/guides/installing-using-linux-tools/)
+- [安装 pip/setuptools/wheel-官方文档-通过 linux 系统包管理器](https://packaging.python.org/guides/installing-using-linux-tools/)
 - 比如：
   - dedora
   - centos
