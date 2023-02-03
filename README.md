@@ -2,6 +2,20 @@
 
 闲暇之余，整理一些简单入门、应用参考示例等。共同学习，分享快乐
 
+# 导航
+
+- [了解 python](./introduction.md)
+- [安装 python](./install/)
+- [安装 IDE](./ide/)
+- [运行 python](./run.md)
+
+- [python 标准库](./site-packages/standard_lib/)
+- [python 应用](./site-packages/app/)
+- [python 开源项目](./opencode/)
+
+- [问题 FAQ](./issue/)
+- [参考](./reference.md)
+
 # 建议
 
 - 一个好的学习方法，是一个登堂入室的捷径。以 **例子** 为核心进行学习一门语言或一个中间件等功能，是目前看来最直接最有效的方式。
