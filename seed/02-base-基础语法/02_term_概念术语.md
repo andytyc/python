@@ -68,7 +68,7 @@ Python 有六个标准的数据类型：
 
 **很重要一点是类型可以自由地转换，你赋什么值，变量就是什么类型，python 会自动帮你管理**
 
-[code](https://github.com/andytyc/pythoncode/seed/base/term/01.py)
+[code](https://github.com/andytyc/pythoncode/blob/main/seed/base/term/01.py)
 
 ### 1. 数字
 
@@ -80,8 +80,8 @@ Python3 支持 `int（整数）、float（浮点数）、bool（布尔）、comp
 
 2. Python3 中，`bool 是 int 的子类`，True 和 False 可以和数字相加， `True == 1`、`False == 0` 会返回 True，但可以通过 `is` 来判断类型。
 
-[code](https://github.com/andytyc/pythoncode/seed/base/term/02.py)
+[code](https://github.com/andytyc/pythoncode/blob/main/seed/base/term/02.py)
 
 #### 1.2 整数、浮点数
 
-[code](https://github.com/andytyc/pythoncode/seed/base/term/03.py)
+[code](https://github.com/andytyc/pythoncode/blob/main/seed/base/term/03.py)
