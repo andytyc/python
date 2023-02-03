@@ -1,162 +1,29 @@
 <!--ts-->
 
-- [官方](#官方)
-- [在线](#在线)
-  - [安装-pip](#安装-pip)
-  - [安装-setuptools](#安装-setuptools)
-  - [安装-wheel](#安装-wheel)
-- [离线](#离线)
-  - [安装包-格式概念](#安装包-格式概念)
-  - [whl](#whl)
-    - [下载](#下载)
-    - [安装](#安装)
-  - [tar.gz](#targz)
-    - [下载](#下载-1)
-    - [安装](#安装-1)
-  - [tar](#tar)
-  - [安装-pip](#安装-pip-1)
-  - [安装-setuptools](#安装-setuptools-1)
-  - [安装-wheel](#安装-wheel-1)
-  - [实战-安装](#实战-安装)
-    - [通过(requirements.txt)-离线安装依赖包](#通过requirementstxt-离线安装依赖包)
+- [安装-pip](#安装-pip)
+- [安装-setuptools](#安装-setuptools)
+- [安装-wheel](#安装-wheel)
+- [实战-安装](#实战-安装)
+  - [通过(requirements.txt)-离线安装依赖包](#通过requirementstxt-离线安装依赖包)
 
-<!-- Added by: tt, at: Fri Feb 28 15:01:05 CST 2020 -->
+<!-- Added by: edy, at: 2023年 2月 3日 星期五 12时00分38秒 CST -->
 
 <!--te-->
 
-# 官方
+# 实战笔记
 
-- [install packages 官方文档-讲述如何安装 packages](https://packaging.python.org/tutorials/installing-packages/)
-- 目录：
+通过 `requirements.txt` 离线安装依赖包
 
-  - 安装软件需要准备的东西(Requirements).
-    - 确保您可以从命令行运行 python
-    - 确保您可以从命令行运行 pip
-    - 确保 pip、setuptools、wheel 是最新的
-    - 可选地，创建一个虚拟环境
-  - 创建虚拟环境
-  - 使用 pip 进行安装
-  - 从 PyPI 安装
-  - 通过源码包 vs wheels 包安装
-  - 升级依赖包
-  - 为某个用户安装
-  - Requirements 文件
-  - 从 VCS 安装
-  - 从其他链接索引处(即：其他源-如，国内阿里源)安装
-  - 从本地 src 树中安装
-  - 从本地档案(archives)安装
-  - 从其他来源安装
-  - 安装预映(Prereleases)
-  - 安装 setuptools 临时演员
+背景：
 
-- [install pip/setuptools/wheel-官方文档-通过 linux 系统包管理器](https://packaging.python.org/guides/installing-using-linux-tools/)
-- 比如：
-  - dedora
-  - centos
-  - ubuntu
-  - 等
+目前一个机器环境上，需要离线安装一些依赖包（这里自己本机笔记），具体安装包和版本可见：`requirements.txt`
 
-# 在线
-
-- 能联外网，直接使用 pip 在线安装即可：
-  - `pip install xxx`
-  - 或 `pip install xxx==1.2.1`
-  - 或 `pip install xxx>=1.2.1`
-- 如果慢，更新 `pip源` 为国内源(国内加速器)。
-  - 见：python/02
-
-## 安装-pip
-
-```
-查看
-pip --version
-
-
-```
-
-## 安装-setuptools
-
-## 安装-wheel
-
-# 离线
-
-- 不能联外网，如：某公司内网，不允许与公网接触。
-- 也有时：
-  - 我们是为了网速不好等原因，拷贝或下载离线安装包。
-  - 有时，是工作环境需要，只需在内网，不允许访问外网。
-
-## 安装包-格式概念
-
-- 在使用 python 时，在 lib/pkgs (也就是：packages) 里会接触到很多格式的包文件.
-
-- 那么 `离线下载` 的 `安装包`，都有哪些格式呢？
-
-  - xxx.whl: `已经编译的包`，类似于 exe 文件，注意：这种包；
-  - xxx.tar.gz: 源文件，压缩并打包在一起，`还没有编译`。
-  - xxx.tar: 源文件，只是打包在一起(相比较与 tar.gz 只是少了一步压缩)，`还没有编译`；
-
-- 场景选择
-  - 如果`环境挺充足`，可以用 `tar包或者tar.gz包`。
-  - 如果`环境欠缺`，比如缺少某些编译环境，又比如想要快速且稳定，就用 `whl包`。
-
-## whl
-
-### 下载
-
-1. 此类安装包文件，有的使用`多种系统`，有的是仅某一系统适用(如：mac_os).
-2. 所以需要在`google搜索：pip install xxx`，找到官网.
-3. 在包的官网中，点击左边的 `Download files`，会出现很多安装包.
-4. 下载需要系统的 xxx.whl 即可。
-
-### 安装
-
-- 使用命令：`pip install xxx.whl`，或 `pip3 install xxx.whl`
-- 想要安装的 xx 包 ，会自动安装到的位置在：`pip -V`，或 `pip3 -V`，即使用的 pip 所在的目录下。
-- 注意：
-  - 安装时，需要确保已经安装了 `pip` 包，若没有则需要提前安装。
-  - 不同虚拟环境，也就是不同的文件夹，那么使用 `不同指向的pip` 安装，自然安装在所使用的 pip 所在的目录下。
-
-## tar.gz
-
-### 下载
-
-1. 此类安装包文件，就厉害了，是源码安装包，`任何系统`都行。
-2. 所以需要在 google 搜索：pip install xxx，找到官网.
-3. 在包的官网中，点击左边的 `Download files`，会出现很多安装包.
-4. 下载此包的 xxx.tar.gz 文件.
-
-### 安装
-
-- 源文件，压缩并打包在一起，还没有编译。
-- 使用命令：
-  1. 先解压：`tar -xvf xx.tar.gz`
-  2. 在切至目录：`cd xx`
-  3. 编译，安装依赖包即可：`python setup.py install`，或 `python3 setup.py install`
-- 想安装的 xx 包 ，会自动安装到的位置在：`pip -V`，或 `pip3 -V`，即 python 所对应的 pip 所在的目录下。
-- 注意：
-  - 编译安装时，需要确保已经安装了 `setuptools` 包，若没有则需要提前安装。
-
-## tar
-
-- 下载和安装和 `tar.gz` 格式类似，只是 tar 文件是仅打包了，tar.gz 文件既打包并压缩了.
-- 所以，linux 命令解包后，得到的文件是一样的。
-- 所以，具体下载，安装，这里就不重复写了。
-
-## 安装-pip
-
-## 安装-setuptools
-
-## 安装-wheel
-
-## 实战-安装
-
-### 通过(requirements.txt)-离线安装依赖包
-
-```
-# 随便创建一个pkgs目录(/Users/tt/Desktop/pkgs)，用来收集所有pkg离线安装包
+```bash
+# 随便创建一个pkgs目录(/Users/tt/Desktop/pkgs)，用来收集所有pkg离线安装包(下载后都放在这里)
 mkdir -p ~/Desktop/pkgs
 
 # 依照项目里requirements.txt，下载pkg安装包
+# 注意：这些离线包通过命令下载来的，也可以直接去官网直接下载 xxx.whl，或 xxx.tar.gz 文件，用于安装，过程都一样。
 pip download -r requirements.txt -d /Users/tt/Desktop/pkgs
 
 # 查看下载了哪些pkg安装包(有的是：xxx.whl, 有的是：xxx.tar.gz)
@@ -164,6 +31,7 @@ cd /Users/tt/Desktop/pkgs/
 ls -rtl
 
 # 将这个目录压缩打包，想法子弄到自己的服务器上(这里，自己造一个干净的虚拟环境，测试步骤)
+
 # 目前有一个感觉的虚拟环境(--no-site-packages)，名为：pkg_py370
 (pkg_py370) lyfdeMacBook-Pro:~ tt$ pip list
 Package    Version
@@ -172,7 +40,7 @@ pip        19.3.1
 setuptools 42.0.2
 wheel      0.33.6
 
-# 查看自己依赖包目录在哪
+# 查看自己依赖包管理目录在哪
 (pkg_py370) lyfdeMacBook-Pro:~ tt$ pip -V
 pip 19.3.1 from /Users/tt/.workspaces/pkg_py370/lib/python3.7/site-packages/pip (python 3.7)
 
@@ -193,24 +61,24 @@ drwxr-xr-x   9 tt  staff   288 12 25 17:59 wheel-0.33.6.dist-info
 
 # 可以发现，和pip list 显示一样，目前有：setuptools, pip, wheel
 
-# ok，开始离线安装新的依赖包，首先进入收集的离线安装包目录(有的是：xxx.whl, 有的是：xxx.tar.gz)
+# ok，开始离线安装新的依赖包，首先进入收集的离线安装包目录(/Users/tt/Desktop/pkgs/: 有的是：xxx.whl, 有的是：xxx.tar.gz)
 # 注意：这里说明下：
-xxx.whl:
-	1. 此类安装包文件，有的使用多种系统，有的是仅某一系统适用(如：mac_os).
-	2. 所以需要在google搜索：pip install xxx，找到官网.
-	3. 在包的官网中，点击左边的 "Download files"，会出现很多安装包.
-	4. 下载需要系统的xxx.whl即可。
-xxx.tar.gz:
-	1. 此类安装包文件，就厉害了，是源码安装包，任何系统都行。
-	2. 所以需要在google搜索：pip install xxx，找到官网.
-	3. 在包的官网中，点击左边的 "Download files"，会出现很多安装包.
-	4. 下载此包的 xxx.tar.gz 文件.
-	5. 在需要安装的服务器上，python安装完毕，如果没有setup包，需要提前安装。
-	6. 安装 xxx:
-		1. 先解压：tar -x xxx.tar.gz
-		2. cd xxx
-		3. 执行安装：python setup.py install  或  python3 setup.py install，即可安装。
 
+# xxx.whl:
+# 	1. 此类安装包文件，有的使用多种系统，有的是仅某一系统适用(如：mac_os).
+# 	2. 所以需要在google搜索：pip install xxx，找到官网.
+# 	3. 在包的官网中，点击左边的 "Download files"，会出现很多安装包.
+# 	4. 下载需要系统的xxx.whl即可。
+# xxx.tar.gz:
+# 	1. 此类安装包文件，就厉害了，是源码安装包，任何系统都行。
+# 	2. 所以需要在google搜索：pip install xxx，找到官网.
+# 	3. 在包的官网中，点击左边的 "Download files"，会出现很多安装包.
+# 	4. 下载此包的 xxx.tar.gz 文件.
+# 	5. 在需要安装的服务器上，python安装完毕，如果没有setup包，需要提前安装。
+# 	6. 安装 xxx:
+# 		1. 先解压：tar -x xxx.tar.gz
+# 		2. cd xxx
+# 		3. 执行安装：python setup.py install  或  python3 setup.py install，即可安装。
 
 (pkg_py370) lyfdeMacBook-Pro:site-packages tt$ cd ~/Desktop/pkgs/
 
@@ -244,10 +112,10 @@ Successfully installed Django-2.1.4
 Django==2.1.4
 pytz==2019.3
 
-
 # 其他安装包，都这样安装即可。注意：有的是：xxx.tar.gz离线包，怎么安装呢？一样
 # xxx.tar.gz，也直接install 就行
-# 因为和平时其他离线下载xx.tar.gz，在解压进入xx文件目录，使用setup 离线安装一样，直接pip install 就行，这里不用解压
+#
+# 因为install操作后，它会和平时其他离线下载xx.tar.gz，在解压进入xx文件目录，使用setup 离线安装一样，直接pip install 就行，这里不用解压
 
 # 如：安装pycparser，收集来的是：pycparser-2.19.tar.gz
 
@@ -260,7 +128,6 @@ Building wheels for collected packages: pycparser
 Successfully built pycparser
 Installing collected packages: pycparser
 Successfully installed pycparser-2.19
-
 
 # 注意：收集离线安装pkg的目录随意，但用哪一个pip安装，则这些依赖包就会安装到哪一个 "pip -V" 所在目录下。
 # 所以，如果想在其他虚拟环境下安装这些包，需要先切换至相应虚拟环境下，使用pip安装。
@@ -327,8 +194,8 @@ drwxr-xr-x  103 tt  staff    3296 12 25 18:24 PIL
 drwxr-xr-x    9 tt  staff     288 12 25 18:24 Pillow-6.2.1.dist-info
 
 # ok，安装完毕，至于验证，在进入python里，导入模块看看就知道了。
-# 如，随便测试一个 Pillow 包，是否正常使用，导包正常，没报错。
 
+# 如，随便测试一个 Pillow 包，是否正常使用，导包正常，没报错。
 (pkg_py370) lyfdeMacBook-Pro:site-packages tt$ python
 Python 3.7.0 (default, Oct  8 2019, 18:54:48)
 [Clang 10.0.1 (clang-1001.0.46.4)] on darwin
@@ -336,8 +203,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> from PIL import Image
 >>>
 
-### 离线安装到此结束了，当然这些离线包通过命令下载来的，也可以直接去官网直接下载 xxx.whl，或 xxx.tar.gz 文件，用于安装，过程都一样。
+# 离线安装到此结束了
 
-### 还有一个非常规操作，直接将安装好的，可以使用的包，复制一份放进 "pip -V" 所在目录里，也行，只要能在python环境中正常使用就行。
-
+# 备注:
+# 还有一个非常规操作，直接将安装好的，可以使用的包，复制一份放进 "pip -V" 所在目录里，也行，只要能在python环境中正常使用就行。（但要注意:python版本环境是一样的，比如:都是ubuntu系统，python3.6.6版本）
 ```

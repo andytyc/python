@@ -1,4 +1,13 @@
 <!--ts-->
+
+- [准备](#准备)
+- [安装 python](#安装-python)
+- [更新 pip 国内源](#更新-pip-国内源)
+- [venv 安装虚拟环境](#venv-安装虚拟环境)
+- [再次安装其他版本 python](#再次安装其他版本-python)
+
+<!-- Added by: edy, at: 2023年 2月 3日 星期五 11时38分11秒 CST -->
+
 <!--te-->
 
 # 准备
@@ -44,7 +53,7 @@ cd Python-3.6.6/
 # 至此python3.6.6的安装，全部完成。
 ```
 
-# 更新-pip-国内源
+# 更新 pip 国内源
 
 ```bash
 # 修改pip源为国内源，目的为 pip install 加快速度
@@ -60,7 +69,7 @@ index-url=http://mirrors.aliyun.com/pypi/simple/
 /usr/local/python366/bin/pip3 install --upgrade pip
 ```
 
-### venv-安装虚拟环境
+# venv 安装虚拟环境
 
 ```bash
 # pip安装虚拟环境
@@ -92,7 +101,9 @@ deactivate
 # 至此pip源更新和虚拟环境venv，全部完成。
 ```
 
-### 再次-安装其他版本 python
+# 再次安装其他版本 python
+
+大同小异，参考即可
 
 ```bash
 # 假如，现在没有python3.6.6，我们来安装一个

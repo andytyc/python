@@ -51,7 +51,7 @@ where pip
 
 # Mac
 
-这台电脑是刚把之前的换了台，但也是之前有人用过的，先查看系统中目前的 python 环境怎样
+工作电脑这台电脑是刚把之前的换了台，但也是之前有人用过的，先查看系统中目前的 python 环境怎样
 
 ```bash
 # edy@edydeMacBook-Pro ipython % which python
