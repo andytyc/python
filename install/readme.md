@@ -1,17 +1,17 @@
+# 介绍
+
+1. [在线安装（新手推荐）](./online_install/)
+2. [离线安装](./offline_install/)
+
 # 参考
 
-1. 在线安装
-2. 离线安装
+- [菜鸟 python3 安装](https://www.runoob.com/python3/python3-install.html)
 
-```bash
-# https://www.w3cschool.cn/python/python-install.html
-# https://www.runoob.com/python3/python3-install.html
+- [官方网站](https://www.python.org/)
+- [官方文档](https://www.python.org/doc/)
+- [python 下载](https://www.python.org/downloads/)
 
-# site-packages-pip
-pip, 第三方依赖包等
-```
-
-# 官方
+# 备注
 
 - [安装 packages 官方文档-讲述如何安装 packages](https://packaging.python.org/tutorials/installing-packages/)
 - 目录：
