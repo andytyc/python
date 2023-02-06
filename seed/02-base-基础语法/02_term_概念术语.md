@@ -1,6 +1,6 @@
 <!--ts-->
 
-- [import 模块](#import-模块)
+- [运行程序、python 解释器](#运行程序python-解释器)
 - [变量、数据类型](#变量数据类型)
   - [变量赋值](#变量赋值)
   - [标准数据类型](#标准数据类型)
@@ -21,17 +21,22 @@
   - [3. 集合(set)推导式](#3-集合set推导式)
   - [4. 元组(tuple)推导式](#4-元组tuple推导式)
 
-<!-- Added by: edy, at: 2023年 2月 5日 星期日 19时33分48秒 CST -->
+<!-- Added by: edy, at: 2023年 2月 6日 星期一 18时09分06秒 CST -->
 
 <!--te-->
 
-# import 模块
+# 运行程序、python 解释器
 
-`xxx.py` 一个 py 源代码文件就是一个模块，可通过文件路径进行导入
+简单直观的来说，执行的 `python` 命令，就是开启的 python 解释器
 
-```python
+[运行 python 命令或脚本](../../run.md)
 
-```
+Python 解释器可不止一种哦，有 `CPython、IPython、Jython、PyPy` 等。
+
+1. 顾名思义，CPython 就是用 C 语言开发的了，是官方标准实现，拥有良好的生态，所以应用也就最为广泛了。
+2. 而 IPython 是在 CPython 的基础之上在交互式方面得到增强的解释器 [ipython 官方地址](http://ipython.org/)
+3. Jython 是专为 Java 平台设计的 Python 解释器 [jython 官方地址](http://www.jython.org/)，它把 Python 代码编译成 Java 字节码执行。
+4. PyPy 是 Python 语言（2.7.13 和 3.5.3）的一种快速、兼容的替代实现 [pypy 官方地址](http://pypy.org/)，以速度快著称。
 
 # 变量、数据类型
 

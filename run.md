@@ -1,8 +1,12 @@
-python 常见运行方式：
+# 运行
+
+python 常见运行方式有两种：
 
 1. 交互式解释器
 
-不需要创建脚本文件，是通过 Python 解释器的交互模式进来编写代码
+不需要创建脚本文件，是通过 Python 解释器的交互模式进来编写代码，执行 `python` 来启动 Python 解释器
+
+> `>>>` 是 python 提示符，输入命令回车直接查看运行结果
 
 ```bash
 # root@watrix:/usr/local/lib/python3.8/dist-packages# python3
@@ -16,7 +20,7 @@ hello world
 
 2. 运行脚本文件
 
-通过引入解释器可以在命令行中执行 Python 脚本
+代码放进 `xx.py` 源代码文件中，作为一个脚本文件，通过引入 python 解释器可以在命令行中执行 Python 脚本
 
 > 检查脚本文件是否有可执行权限
 
@@ -41,6 +45,8 @@ print('Hello World!')
 print('Hello World!')
 ```
 
-3. 使用 IDE 工具运行
+# IDE
 
-在图形用户界面（GUI）环境下，直接点击按钮就可以
+使用 IDE 工具运行，在图形用户界面（GUI）环境下，直接`点击按钮`就可以
+
+> 本质上，其实就是使用的第二种方式（脚本式执行），只是工具按钮封装了此操作而已
