@@ -11,6 +11,8 @@
 - [官方文档](https://www.python.org/doc/)
 - [python 下载](https://www.python.org/downloads/)
 
+- [参考不错例子](https://github.com/walter201230/Python/blob/master/Article/PythonBasis/python1/Installation.md)
+
 # 备注
 
 - [安装 packages 官方文档-讲述如何安装 packages](https://packaging.python.org/tutorials/installing-packages/)

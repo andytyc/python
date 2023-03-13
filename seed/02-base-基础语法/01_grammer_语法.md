@@ -15,6 +15,18 @@
 
 python 语法规范是 `PEP8` 规定的
 
+每种语言都有自己的语法，不管是自然语言（英语，中文）还是计算机编程语言。
+
+Python 也不例外，它也有自己的语法规则，然后编辑器或者解析器根据符合语法的程序代码转换成 CPU 能够执行的机器码，然后执行。
+
+# 参考
+
+[参考](https://github.com/walter201230/Python/blob/master/Article/codeSpecification/codeSpecification_first.md)
+
+[参考 (命名规范)](https://github.com/walter201230/Python/blob/master/Article/codeSpecification/codeSpecification_third.md)
+
+[参考 (注释)](https://github.com/walter201230/Python/blob/master/Article/codeSpecification/codeSpecification_second.md)
+
 # 标识符
 
 1. 字母、数字、下划线(`_`)，但不能以数字开头
@@ -34,6 +46,8 @@ python 语法规范是 `PEP8` 规定的
 
 Python 的代码块不使用大括号`{}`包裹，而是以`缩进和换行`来区分代码块。常见的代码块出现在函数、循环以及逻辑判断等地方。
 
+> 当语句以冒号 : 结尾时，缩进的语句视为代码块
+>
 > 观赏性好，代码优雅
 
 1. 同一级别的代码块语句必须包含相同的缩进空白数量，错误示范如下：

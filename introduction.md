@@ -33,3 +33,7 @@
 Python 在执行时，首先会将.py 文件中的源代码编译成 Python 的 byte code（字节码），然后再由 Python Virtual Machine（Python 虚拟机）来执行这些编译好的 byte code。
 
 > Cpython 编译器编译后的字节码文件一般是 xxx.pyc
+
+# 参考
+
+[参考](https://github.com/walter201230/Python/blob/master/Article/PythonBasis/python1/Introduction.md)
