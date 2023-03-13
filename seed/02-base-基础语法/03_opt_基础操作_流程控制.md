@@ -5,8 +5,12 @@
   - [截取（切片）](#截取切片)
   - [拼接、重复](#拼接重复)
   - [可迭代、遍历](#可迭代遍历)
+  - [什么是 print()函数](#什么是-print函数)
+  - [什么是 range()函数](#什么是-range函数)
 - [条件](#条件)
-  - [if-elif-else](#if-elif-else)
+  - [if-else 基本形式](#if-else-基本形式)
+  - [if-elif-else 多个判断条件](#if-elif-else-多个判断条件)
+  - [if-elif-else 多个判断条件的组合](#if-elif-else-多个判断条件的组合)
   - [match-case](#match-case)
 - [循环](#循环)
   - [while](#while)
@@ -16,9 +20,13 @@
   - [for xx else yy](#for-xx-else-yy)
   - [break 中断、continue 继续](#break-中断continue-继续)
   - [pass](#pass)
-- [运算符](#运算符)
+  - [进阶](#进阶)
+    - [1. for 和 while 的区别](#1-for-和-while-的区别)
+    - [2. for 或 while xx else 的对比](#2-for-或-while-xx-else-的对比)
+    - [3. 都可以嵌套](#3-都可以嵌套)
+- [例子](#例子)
 
-<!-- Added by: edy, at: 2023年 2月 6日 星期一 19时28分12秒 CST -->
+<!-- Added by: edy, at: 2023年 3月13日 星期一 16时11分59秒 CST -->
 
 <!--te-->
 
@@ -71,9 +79,28 @@ s = "Runoob"
 1. 字符串
 2. 列表
 
+## 什么是 print()函数
+
+[参考](../../site-packages/standard_lib/print/)
+
+## 什么是 range()函数
+
+[参考](../../site-packages/standard_lib/range/)
+
 # 条件
 
-## if-elif-else
+[参考](https://github.com/walter201230/Python/blob/master/Article/PythonBasis/python5/If.md)
+
+## if-else 基本形式
+
+```python
+if 判断条件：
+    执行语句……
+else：
+    执行语句……
+```
+
+## if-elif-else 多个判断条件
 
 1. 每个条件后面要使用`冒号 :`，表示接下来是满足条件后要执行的语句块
 2. 使用缩进来划分语句块
@@ -105,6 +132,33 @@ elif 表达式4:
     语句
 else:
     语句
+```
+
+## if-elif-else 多个判断条件的组合
+
+> 注意：if 有多个条件时可使用括号来区分判断的先后顺序，括号中的判断优先执行
+
+```python
+# 这时候我们可以结合 or 和 and 来使用。
+# or （或）表示两个条件有一个成立时判断条件成功
+# and （与）表示只有两个条件同时成立的情况下，判断条件才成功。
+
+# -*-coding:utf-8-*-
+
+java = 86
+python = 68
+
+if java > 80 and  python > 80:
+    print('优秀')
+else :
+    print('不优秀')
+
+if ( java >= 80  and java < 90 )  or ( python >= 80 and python < 90):
+    print('良好')
+
+# 输出结果：
+# 不优秀
+# 良好
 ```
 
 ## match-case
@@ -154,6 +208,8 @@ def http_error(status):
 ```
 
 # 循环
+
+计算机最擅长就是做重复的事情。
 
 ## while
 
@@ -269,4 +325,51 @@ print("完成循环!")
 
 pass 是空语句，是为了保持程序结构的完整性。pass 不做任何事情，一般用做`占位语句`，如下实例
 
-# 运算符
+## 进阶
+
+### 1. for 和 while 的区别
+
+那什么时候才使用 for 循环和 while 循环呢？
+
+- for 循环主要用在迭代可迭代对象的情况。
+- while 循环主要用在需要满足一定条件为真，反复执行的情况。（死循环+break 退出等情况。）
+- 部分情况下，for 循环和 while 循环可以互换使用。
+
+### 2. for 或 while xx else 的对比
+
+```python
+for xxx else
+while xxx else
+```
+
+当然有 `for … else` ，也会有 `while … else` 。
+
+**他们的意思都是一样的**，举例说明如下：
+
+- 在循环正常执行完（不是通过 break 等跳出而中断的）情况下，都会执行 else 代码块
+
+> for, while 正常结束，都是自身的循环条件为 False 时结束
+
+### 3. 都可以嵌套
+
+循环语句和条件语句一样，都是可以嵌套的。
+
+```python
+# for 循环嵌套语法
+for iterating_var in sequence:
+   for iterating_var in sequence:
+      statements(s)
+   statements(s)
+
+# while 循环嵌套语法
+while expression:
+   while expression:
+      statement(s)
+   statement(s)
+
+# 除此之外，你也可以在循环体内嵌入其他的循环体，如在 while 循环中可以嵌入 for 循环， 反之，你可以在 for 循环中嵌入 while 循环
+```
+
+# 例子
+
+[code](https://github.com/andytyc/pythoncode/blob/main/seed/base/opt/03-1-if-else-for-while.py)
