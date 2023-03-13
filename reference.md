@@ -14,12 +14,18 @@
   - [python 标准库](https://docs.python.org/3.7/library/index.html)
   - [python 全局模块-快速访问](https://docs.python.org/3.7/py-modindex.html)
 
+- [python 3.5 中文文档](https://docs.pythontab.com/python/python3.5/)
+
 # 入门教程
+
+- [python 3.5 中文文档](https://docs.pythontab.com/python/python3.5/)
 
 - [w3cschool 对于 python2 的教程](https://www.w3cschool.cn/python/)
 - [菜鸟 对于 python3 的教程](https://www.runoob.com/python3/python3-tutorial.html)
 
 - [不错的 python 教程](https://github.com/TwoWater/Python)
+- [不错的 python 教程 2](https://github.com/walter201230/Python)
+
 - [python 例子 demo](https://github.com/geekcomputers/Python)
 
 - [virtualenv 虚拟环境](https://github.com/pypa/virtualenv)
