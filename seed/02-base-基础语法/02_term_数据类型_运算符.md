@@ -251,6 +251,16 @@ Python 在后来添加了对 Unicode 的支持，以 Unicode 表示的字符串�
 
 申明了 UTF-8 编码并不意味着你的 `.py 文件`就是 UTF-8 编码的，必须并且要确保文本编辑器正在使用 UTF-8 without BOM 编码
 
+> Python3.X 源码文件默认使用 utf-8 编码，所以可以正常解析中文，无需指定 UTF-8 编码。
+>
+> 但在 python2.x 时，需要头部指定编码的 `coding: utf-8` 解决当打印的字符串有中文，避免可能出现中文编码错误
+
+```python
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+print('Hello World!')
+```
+
 ### 3. 列表
 
 列表（list）是写在方括号 `[]` 之间、用 `逗号` 分隔开的元素列表
