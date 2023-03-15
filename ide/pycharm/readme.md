@@ -194,6 +194,19 @@ Output paths to refresh: $FilePath$
 # 保存，并应用即可 (没生效则重启下pycharm)
 ```
 
+- 问题
+
+```bash
+# https://intellij-support.jetbrains.com/hc/en-us/community/posts/206594535-Always-prompted-with-Keep-Memory-Changes-Show-difference-Load-File-System-Changes-dialog
+
+# 修改文件代码，就一直弹框: keep memory changes
+
+# 解决
+# Prefferences -> Tools -> File Watchers 编辑black
+
+# 把 Advanced Option 中勾选都去掉
+```
+
 ## 设置作者信息、脚本模板
 
 不同系统 `mac, windows` 可能一些按钮稍有不同，但大同小异可以理解
