@@ -7,10 +7,11 @@
 - [类和对象](#类和对象)
   - [类是什么](#类是什么)
   - [怎么定义类](#怎么定义类)
-  - [怎么调用类属性和类方法](#怎么调用类属性和类方法)
+  - [怎么定义类属性和类方法](#怎么定义类属性和类方法)
   - [类对象是什么？如何实例化](#类对象是什么如何实例化)
   - [特殊标识符](#特殊标识符)
     - [self](#self)
+    - [cls](#cls)
   - [类属性](#类属性)
     - [1. 私有属性](#1-私有属性)
   - [类方法](#类方法)
@@ -18,7 +19,6 @@
       - [1. 实例方法（入门）](#1-实例方法入门)
       - [2. 静态方法](#2-静态方法)
       - [3. 类方法](#3-类方法)
-      - [4. 总结（对比）](#4-总结对比)
     - [私有方法](#私有方法)
     - [专有方法](#专有方法)
       - [1. 构造方法 init](#1-构造方法-init)
@@ -29,8 +29,13 @@
   - [重写时选择调用父类方法](#重写时选择调用父类方法)
     - [1. 子类内部使用](#1-子类内部使用)
     - [2. 子类的对象使用](#2-子类的对象使用)
+- [多态](#多态)
+  - [什么是多态](#什么是多态)
+  - [类如何表现多态](#类如何表现多态)
+- [常用方法](#常用方法)
+  - [如何判断是什么类型？是否是谁的子类](#如何判断是什么类型是否是谁的子类)
 
-<!-- Added by: edy, at: 2023年 3月15日 星期三 20时03分07秒 CST -->
+<!-- Added by: edy, at: 2023年 3月16日 星期四 11时17分33秒 CST -->
 
 <!--te-->
 
@@ -116,12 +121,12 @@ class ClassName():
 
 说类是变量和方法的集合包，那么我们来创建一个类。
 
-## 怎么调用类属性和类方法
+## 怎么定义类属性和类方法
 
-我们定义了类之后，那么我们怎么调用类里面的属性和方法呢？
+我们定义了类之后，那么我们怎么定义类里面的属性和方法呢？
 
-- 类里边的变量叫属性，怎样调用？格式：`类.属性`
-- 类里边的函数叫方法，怎样调用？格式：`类.函数()`
+- 类里边的变量叫属性，详细见：类属性
+- 类里边的函数叫方法，详细见：类方法
 
 ## 类对象是什么？如何实例化
 
@@ -206,6 +211,12 @@ t2.prt()
 #<class '__main__.Test2'>
 ```
 
+### cls
+
+类的类方法也必须包含一个参数，通常约定为 `cls` ，cls 代表类本身（注意不是实例本身，是有区别的），python 会自动将类本身传给 cls，所以这个参数也不需要我们传值。
+
+对于这个 `cls` 的理解可以参考：`类方法 - 方法分类 - 类方法` 这一块技术点笔记。
+
 ## 类属性
 
 ### 1. 私有属性
@@ -244,9 +255,16 @@ print(counter.__secretCount)  # 报错(实例不能访问私有变量)
 
 #### 1. 实例方法（入门）
 
-实例方法，第一个参数是 self（self 是一种约定习惯） 代表实例本身，当调用某个实例方法时，该实例的对象引用作为第一个参数 self **隐式的传递**到方法中。
+实例方法，第一个参数是 `self`（self 是一种约定习惯） 代表实例本身，当调用某个实例方法时，该实例的对象引用作为第一个参数 self **隐式的传递**到方法中。
 
 在类的内部，使用 def 关键字来定义一个方法，与一般函数定义不同，类方法必须包含参数 **self**，且为第一个参数，**self** 代表的是类的实例。
+
+特点：
+
+- 可以获取类属性，也可以获取构造函数定义的变量，属于 method 类型。
+- 只能通过实例化后调用。
+
+以下为例，有两种调用实例方法的方式：
 
 ```python
 # 类定义
@@ -263,37 +281,113 @@ class People:
         self.age = a
         self.__weight = w
 
+    # 可以获取类属性，也可以获取构造函数定义的变量，属于method类型
     def speak(self):
         print("%s 说: 我 %d 岁, 重 %d" % (self.name, self.age, self.__weight))
 
 
 # 实例化类
 p = People("runoob", 10, 30)
-# 调用实例方法
+# 方式1: 调用实例方法
 p.speak()
+# 方式2: 调用实例方法
+People.speak(p)
 
+# runoob 说: 我 10 岁, 重 30
 # runoob 说: 我 10 岁, 重 30
 ```
 
 #### 2. 静态方法
 
-[参考](https://www.cnblogs.com/shenh/p/13045035.html)
+什么是静态方法？和普通方法的有什么区别？
 
-xxx
+- 在类中定义静态方法，需要使用 `@staticmethod` 装饰器声明。
+
+> 额外提一嘴：有点类似 Java 的类中 static 的修饰，用于全局变量或全家方法
+
+- 类的静态方法和我们自定义的函数基本没什么区别，没有 self，且不能访问类属性。
+
+> 实际项目中很少用到，因为可以使用普通函数替代
+
+特点：
+
+- 不能获取类属性，也不能获取构造函数定义的变量，属于 function 类型 (几乎等同类外部声明的普通函数)
+- 两种调用方式：类.方法名 ，实例化调用
+
+> 归属于类，需要通过类来调用。ps: 如果习惯了 Java 开发习惯，可以这样来定义“普通函数（全局函数）”
+
+例子：
+
+```python
+class Test:
+    math = 100
+
+    # 类构造方法也是实例方法(有self)
+    def __init__(self):
+        self.Chinese = 90
+        self.English = 80
+
+    # 不能获取类属性，也不能获取构造函数定义的变量，属于function类型 (几乎等同类外部声明的普通函数)
+    @staticmethod
+    def say():
+        print("我的语文成绩是：90")
+
+
+# 方式1: 类直接调用
+Test.say()
+print(Test.say)  # <function Test.say at 0x000001C2620257B8>
+
+# 方式2: 实例化后调用
+A = Test()
+A.say()
+print(A.say)  # <function Test.say at 0x000001C2620257B8>
+
+# 我的语文成绩是：90
+# <function Test.say at 0x10dfa9c80>
+# 我的语文成绩是：90
+# <function Test.say at 0x10dfa9c80>
+```
 
 #### 3. 类方法
 
-xx
+- 类方法必须需要使用 `@classmethod` 装饰器修饰。
+- 类的类方法也必须包含一个参数，通常约定为 `cls` ，cls 代表类本身（注意不是实例本身，是有区别的），python 会自动将类本身传给 cls，所以这个参数也不需要我们传值。
 
-#### 4. 总结（对比）
+特点：
 
-三种方法的对比和总结：
+- 可以获取类属性，不能获取构造函数定义的变量，属于 method 类型
+- 两种调用方式：类.方法名 ，实例化调用（不推荐）
 
-- 实例方法：可以获取类属性、构造函数定义的变量，属于 method 类型。只能通过实例化调用。
+例子：
 
-- 静态方法：不能获取类属性、构造函数定义的变量，属于 function 类型。两种调用方式：类.方法名 ，实例化调用。
+```python
+class Test22:
+    math = 100
 
-- 类方法 ：可以获取类属性，不能获取构造函数定义的变量，属于 method 类型。两种调用方式：类.方法名 ，实例化调用（不推荐）。
+    # 类构造方法也是实例方法(有self)
+    def __init__(self):
+        self.Chinese = 90
+        self.English = 80
+
+    # 特点: 可以获取类属性，不能获取构造函数(self 实例方法)定义的变量，属于method类型
+    @classmethod
+    def say(cls):
+        print("我的数学成绩是：{}".format(cls.math))
+
+
+# 方式1: 类直接调用
+Test22.say()
+print(Test22.say)  # <bound method Test22.say of <class '__main__.Test22'>>
+
+# 方式2: 实例化后调用(不推荐这样使用)
+Test22().say()
+print(Test22().say)  # <bound method Test22.say of <class '__main__.Test22'>>
+
+# 我的数学成绩是：100
+# <bound method Test22.say of <class '__main__.Test22'>>
+# 我的数学成绩是：100
+# <bound method Test22.say of <class '__main__.Test22'>>
+```
 
 ### 私有方法
 
@@ -470,8 +564,15 @@ class DerivedClassName(modname.BaseClassName):
 
 ## 单继承、多继承、重写方法
 
+介绍：
+
 - 单继承(单个父类)，多重继承(多个父类)。
 - 如果你的父类方法的功能不能满足你的需求，你可以在子类重写你父类的方法
+
+继承的子类的好处：
+
+- 会继承父类的属性和方法
+- 可以自己定义，覆盖父类的属性和方法
 
 在下边例子中理解：
 
@@ -683,4 +784,121 @@ super(Student77, s).speak()  # s作为子类(Student77)的对象，调用父类(
 # peo77 说: 我 10 岁 重 60
 # stu77 说: 我 10 岁了，我在读 3 年级
 # stu77 说: 我 10 岁 重 60
+```
+
+# 多态
+
+## 什么是多态
+
+多态的概念其实不难理解，它是指：对不同类型的变量进行相同的操作，它会根据对象（或类）类型的不同而表现出不同的行为。
+
+事实上，我们经常用到多态的性质，比如：
+
+```python
+>>> 1 + 2
+3
+>>> 'a' + 'b'
+'ab'
+```
+
+可以看到，我们都对两个整数进行 + 操作，会返回它们的和，但是：
+
+- 对整数进行 + 操作，返回加法后的数字
+
+- 对两个字符进行相同的 + 操作，会返回拼接后的字符串
+
+这就是多态，也就是说，不同类型的对象对同一消息会作出不同的响应。
+
+## 类如何表现多态
+
+从下边例子可以看到，userVip 和 userGeneral 是两个不同的对象，对它们都调用 printUserInfo 方法，它们会自动调用实际类型的 printUser 方法，作出不同的响应。这就是多态的魅力。
+
+> 对于类的多态来说，有了继承，才有了多态，也会有不同类的对象对同一消息会作出不同的相应。
+
+```python
+class User(object):
+    def __init__(self, name):
+        self.name = name
+
+    def printUser(self):
+        print("Hello !" + self.name)
+
+
+class UserVip(User):
+    def printUser(self):
+        print("Hello ! 尊敬的Vip用户：" + self.name)
+
+
+class UserGeneral(User):
+    def printUser(self):
+        print("Hello ! 尊敬的用户：" + self.name)
+
+
+# 封装一个通用方法，做一件事情：将传入对象输出欢迎词
+def printUserInfo(user):
+    user.printUser()
+
+
+userVip = UserVip("两点水")
+userGeneral = UserGeneral("水水水")
+
+# 查看欢迎词
+printUserInfo(userVip)
+# 查看欢迎词
+printUserInfo(userGeneral)
+
+# Hello ! 尊敬的Vip用户：两点水
+# Hello ! 尊敬的用户：水水水
+```
+
+# 常用方法
+
+## 如何判断是什么类型？是否是谁的子类
+
+对于 class 的继承关系来说，有些时候我们需要判断 class 的类型，该怎么办呢？
+
+- 可以使用 `isinstance()` 函数，用于判断对象是什么类型
+- 使用`issubclass()` 函数，用于判断是否是谁的子类
+
+例子：
+
+```python
+class User1(object):
+    pass
+
+
+class User2(User1):
+    pass
+
+
+class User3(User2):
+    pass
+
+
+user1 = User1()
+user2 = User2()
+user3 = User3()
+
+# isinstance()就可以告诉我们，一个实例化对象是否是某种类型
+print(isinstance(user3, User2))  # True
+print(isinstance(user3, User1))  # True
+print(isinstance(user3, User3))  # True
+print(isinstance(user2, User3))  # False
+print(isinstance(user2, User1))  # True
+
+print("****")
+
+# 判断 A 是否是 B,C 的子类
+print(issubclass(User3, User1))  # True
+print(issubclass(User3, User2))  # True
+print(issubclass(User3, (User1, User2)))  # True
+print(issubclass(User1, User3))  # False
+print(issubclass(User1, User2))  # False
+
+print("****")
+
+# 基本类型也可以用isinstance()判断
+print(isinstance("两点水", str))  # True
+print(isinstance(347073565, int))  # True
+print(isinstance(347073565, str))  # False
 ```
